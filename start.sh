@@ -1,0 +1,1 @@
+docker run --network=host  -v /tmp/spotify-pipe:/data/fifo -e SPOTIFY_USERNAME=$SPOTIFY_USERNAME -e SPOTIFY_PASSWORD=$SPOTIFY_PASSWORD spotify -d
