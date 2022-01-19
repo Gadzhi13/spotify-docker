@@ -9,6 +9,7 @@ RUN apk -U add libgcc curl cargo portaudio-dev protobuf-dev \
  && cd librespot-master \
  && cargo build --jobs $(grep -c ^processor /proc/cpuinfo) --release --no-default-features \
  && mv target/release/librespot /usr/local/bin \
+ && mkfifo /data/fifo \
  && cd / \
  && apk --purge del curl cargo portaudio-dev protobuf-dev \
  && apk add llvm-libunwind \
