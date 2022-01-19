@@ -14,4 +14,7 @@ RUN apk -U add libgcc curl cargo portaudio-dev protobuf-dev \
  && apk add llvm-libunwind \
  && rm -rf /etc/ssl /var/cache/apk/* /lib/apk/db/* /root/master.zip /root/librespot-master /root/.cargo
 
-CMD librespot --name "Zinglerassistant" --bitrate "360" --backend pulseaudio --enable-volume-normalisation --linear-volume --initial-volume="90" --disable-discovery
+ ENV SPOTIFY_USERNAME=$SPOTIFY_USERNAME
+ ENV SPOTIFY_PASSWORD=$SPOTIFY_PASSWORD
+
+CMD librespot --name "Zinglerassistant" -u "$SPOTIFY_USERNAME" -p "$SPOTIFY_PASSWORD" --device "avr" --bitrate "360" --backend pulseaudio --enable-volume-normalisation --linear-volume --initial-volume="90" --disable-discovery
