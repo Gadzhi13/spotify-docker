@@ -10,7 +10,4 @@ RUN apk add git alsa-lib-dev rust cargo \
  && mkfifo /data/fifo \
  && apk --purge del curl cargo portaudio-dev protobuf-dev
 
- ENV SPOTIFY_USERNAME=$SPOTIFY_USERNAME
- ENV SPOTIFY_PASSWORD=$SPOTIFY_PASSWORD
-
 CMD librespot --name "Zinglerassistant" -u "$SPOTIFY_USERNAME" -p "$SPOTIFY_PASSWORD" --device "/data/fifo" --device-type "avr" --bitrate 320 --enable-volume-normalisation --initial-volume 100 --disable-discovery
