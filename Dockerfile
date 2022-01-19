@@ -18,4 +18,4 @@ RUN apk -U add libgcc curl cargo portaudio-dev protobuf-dev \
  ENV SPOTIFY_USERNAME=$SPOTIFY_USERNAME
  ENV SPOTIFY_PASSWORD=$SPOTIFY_PASSWORD
 
-CMD librespot --name "Zinglerassistant" -u "$SPOTIFY_USERNAME" -p "$SPOTIFY_PASSWORD" --device "avr" --bitrate 320 --enable-volume-normalisation --initial-volume 100 --disable-discovery
+CMD librespot --name "Zinglerassistant" -u "$SPOTIFY_USERNAME" -p "$SPOTIFY_PASSWORD" --device "avr" --bitrate 320 --enable-volume-normalisation --initial-volume 100
