@@ -8,4 +8,4 @@ RUN apk add git alsa-lib-dev rust cargo alsa-utils alsa-utils-doc alsa-lib alsac
  && cargo build --release --no-default-features --features alsa-backend\
  && mv target/release/librespot /usr/local/bin 
 
-CMD librespot --name "Zinglerassistant" -u "$SPOTIFY_USERNAME" -p "$SPOTIFY_PASSWORD" --backend "alsa" --device "/dev/audio" --device-type "avr" --bitrate 320 --enable-volume-normalisation --initial-volume 100 --disable-discovery
+CMD librespot --name "Zinglerassistant" -u "$SPOTIFY_USERNAME" -p "$SPOTIFY_PASSWORD" --backend "alsa" --device "hw:0,3" --device-type "avr" --bitrate 320 --enable-volume-normalisation --initial-volume 100 --disable-discovery
