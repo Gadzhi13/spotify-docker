@@ -17,12 +17,13 @@ var restart_spotify = () => {
 
 app.post('/restart_spotify', function(request, response) {
   console.log('POST /restart_spotify')
-  console.log(request.body)
   if (request.body.restart) {
     restart_spotify()
+    response.writeHead(200, {'Content-Type': 'text/html'})
+    response.end('Spotify restarted')
   }
-  response.writeHead(200, {'Content-Type': 'text/html'})
-  response.end('Spotify restarted')
+  response.writeHead(404, {'Content-Type': 'text/html'})
+  response.end('What are you looking for in here?')
 })
 
 const port = 3333
