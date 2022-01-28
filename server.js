@@ -1,9 +1,8 @@
 var express = require('express')
 var app = express()
 const { exec } = require('child_process')
-const bodyParser = require('body-parser')
 
-app.use(bodyParser)
+app.use(express.json())
 
 var restart_spotify = exec('sh /home/gadzhi/projects/spotify-docker/start.sh',
         (error, stdout, stderr) => {
@@ -17,7 +16,7 @@ var restart_spotify = exec('sh /home/gadzhi/projects/spotify-docker/start.sh',
 app.post('/restart_spotify', function(request, response) {
   console.log('POST /restart_spotify')
   console.log(request.body)
-  if (request.body == "restart") {
+  if (request.body.restart) {
     restart_spotify()
   }
   response.writeHead(200, {'Content-Type': 'text/html'})
