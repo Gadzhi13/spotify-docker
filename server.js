@@ -13,7 +13,7 @@ var restart_spotify = exec('sh /home/gadzhi/projects/spotify-docker/start.sh',
 
 app.post('/restart_spotify', function(request, response) {
   console.log('POST /restart_spotify')
-  console.log(request.body)
+  console.log(request)
   if (request.body == "restart") {
     restart_spotify()
   }
