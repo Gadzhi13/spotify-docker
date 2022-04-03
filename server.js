@@ -26,6 +26,11 @@ app.post('/restart_spotify', function(request, response) {
   response.end('What are you looking for in here?')
 })
 
-const port = 3333
+var port = 3333
+
+if (process.argv[2]) {
+  port = process.argv[2]
+}
+
 app.listen(port)
 console.log(`Listening at http://localhost:${port}`)
