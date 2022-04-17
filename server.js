@@ -5,7 +5,7 @@ const { exec } = require('child_process')
 app.use(express.json())
 
 var restart_spotify = () => {
-  exec('sh /home/gadzhi/projects/spotify-docker/start.sh',
+  exec('sh ' + __direname + '/start.sh',
         (error, stdout, stderr) => {
             console.log(stdout)
             console.log(stderr)
