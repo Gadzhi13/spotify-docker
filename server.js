@@ -21,9 +21,10 @@ app.post('/restart_spotify', function(request, response) {
     restart_spotify()
     response.writeHead(200, {'Content-Type': 'text/html'})
     response.end('Spotify restarted')
+  } else {
+    response.writeHead(404, {'Content-Type': 'text/html'})
+    response.end('What are you looking for in here?')
   }
-  response.writeHead(404, {'Content-Type': 'text/html'})
-  response.end('What are you looking for in here?')
 })
 
 var port = 3333
